@@ -53,7 +53,7 @@ function hashString(s: string) {
 function mockWeather(city: string) {
   const h = hashString(city.trim().toLowerCase());
   const temp = -5 + (h % 38); // -5..32 °C
-  const condition = CONDITIONS[h % CONDITIONS.length];
+  const condition = CONDITIONS[h % CONDITIONS.length]!;
   return {
     city: city.trim(),
     temp,

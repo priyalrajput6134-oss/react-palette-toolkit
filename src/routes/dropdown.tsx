@@ -152,7 +152,7 @@ const CITIES: Option[] = [
 
 function DropdownPage() {
   const [framework, setFramework] = useState<Option | null>(null);
-  const [city, setCity] = useState<Option | null>(CITIES[0]);
+  const [city, setCity] = useState<Option | null>(CITIES[0]!);
 
   return (
     <PageShell
