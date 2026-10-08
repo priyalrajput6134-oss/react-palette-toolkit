@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CountdownRouteImport } from './routes/countdown'
+import { Route as DropdownRouteImport } from './routes/dropdown'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as KanbanRouteImport } from './routes/kanban'
+import { Route as PasswordRouteImport } from './routes/password'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as WeatherRouteImport } from './routes/weather'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CountdownRoute = CountdownRouteImport.update({
+  id: '/countdown',
+  path: '/countdown',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DropdownRoute = DropdownRouteImport.update({
+  id: '/dropdown',
+  path: '/dropdown',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KanbanRoute = KanbanRouteImport.update({
+  id: '/kanban',
+  path: '/kanban',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PasswordRoute = PasswordRouteImport.update({
+  id: '/password',
+  path: '/password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeatherRoute = WeatherRouteImport.update({
+  id: '/weather',
+  path: '/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/countdown': typeof CountdownRoute
+  '/dropdown': typeof DropdownRoute
+  '/gallery': typeof GalleryRoute
+  '/kanban': typeof KanbanRoute
+  '/password': typeof PasswordRoute
+  '/upload': typeof UploadRoute
+  '/weather': typeof WeatherRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/countdown': typeof CountdownRoute
+  '/dropdown': typeof DropdownRoute
+  '/gallery': typeof GalleryRoute
+  '/kanban': typeof KanbanRoute
+  '/password': typeof PasswordRoute
+  '/upload': typeof UploadRoute
+  '/weather': typeof WeatherRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/countdown': typeof CountdownRoute
+  '/dropdown': typeof DropdownRoute
+  '/gallery': typeof GalleryRoute
+  '/kanban': typeof KanbanRoute
+  '/password': typeof PasswordRoute
+  '/upload': typeof UploadRoute
+  '/weather': typeof WeatherRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/countdown'
+    | '/dropdown'
+    | '/gallery'
+    | '/kanban'
+    | '/password'
+    | '/upload'
+    | '/weather'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/countdown'
+    | '/dropdown'
+    | '/gallery'
+    | '/kanban'
+    | '/password'
+    | '/upload'
+    | '/weather'
+  id:
+    | '__root__'
+    | '/'
+    | '/countdown'
+    | '/dropdown'
+    | '/gallery'
+    | '/kanban'
+    | '/password'
+    | '/upload'
+    | '/weather'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CountdownRoute: typeof CountdownRoute
+  DropdownRoute: typeof DropdownRoute
+  GalleryRoute: typeof GalleryRoute
+  KanbanRoute: typeof KanbanRoute
+  PasswordRoute: typeof PasswordRoute
+  UploadRoute: typeof UploadRoute
+  WeatherRoute: typeof WeatherRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/countdown': {
+      id: '/countdown'
+      path: '/countdown'
+      fullPath: '/countdown'
+      preLoaderRoute: typeof CountdownRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dropdown': {
+      id: '/dropdown'
+      path: '/dropdown'
+      fullPath: '/dropdown'
+      preLoaderRoute: typeof DropdownRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kanban': {
+      id: '/kanban'
+      path: '/kanban'
+      fullPath: '/kanban'
+      preLoaderRoute: typeof KanbanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/password': {
+      id: '/password'
+      path: '/password'
+      fullPath: '/password'
+      preLoaderRoute: typeof PasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/weather': {
+      id: '/weather'
+      path: '/weather'
+      fullPath: '/weather'
+      preLoaderRoute: typeof WeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CountdownRoute: CountdownRoute,
+  DropdownRoute: DropdownRoute,
+  GalleryRoute: GalleryRoute,
+  KanbanRoute: KanbanRoute,
+  PasswordRoute: PasswordRoute,
+  UploadRoute: UploadRoute,
+  WeatherRoute: WeatherRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
